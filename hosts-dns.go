@@ -2,7 +2,6 @@ package main
 
 import (
 	"bufio"
-	"fmt"
 	"github.com/miekg/dns"
 	"log"
 	"net"
@@ -40,7 +39,7 @@ func readHosts() {
 	}
 }
 
-// handleRequest handles type A DNS requests
+// handleRequest handles type A DNS requests.
 func handleRequest(w dns.ResponseWriter, r *dns.Msg) {
 	msg := new(dns.Msg)
 	msg.SetReply(r)
@@ -65,9 +64,9 @@ func main() {
 	readHosts()
 
 	// Print found records for convenience
-	fmt.Println("Found records:")
+	log.Println("Found records:")
 	for k, v := range resolve {
-		fmt.Printf("\t%s -> %s\n", k, v)
+		log.Printf("\t%s -> %s\n", k, v)
 	}
 
 	// Setup and run
