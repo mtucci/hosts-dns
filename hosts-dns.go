@@ -66,7 +66,7 @@ func main() {
 	// Print found records for convenience
 	log.Println("Found records:")
 	for k, v := range resolve {
-		log.Printf("\t%s -> %s\n", k, v)
+		log.Printf("\t%s -> %s\n", strings.TrimSuffix(k, "."), v)
 	}
 
 	// Setup and run
