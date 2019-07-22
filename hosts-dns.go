@@ -6,6 +6,7 @@ import (
 	"log"
 	"net"
 	"os"
+	"regexp"
 	"strings"
 )
 
@@ -22,15 +23,26 @@ func readHosts() {
 
 	resolve = make(map[string]string)
 
+	// Match only IPv4 addresses
+	r, err := regexp.Compile(`\b(?:\d{1,3}\.){3}\d{1,3}\b`)
+	if err != nil {
+		log.Fatal(err)
+	}
+
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		line := scanner.Text()
 		if len(line) == 0 || line[0] == '#' {
 			continue
 		}
+
 		fields := strings.Fields(line)
-		for i := 1; i < len(fields); i++ {
-			resolve[fields[i]+"."] = fields[0]
+
+		// If the first field is a IPv4 address
+		if r.MatchString(fields[0]) {
+			for i := 1; i < len(fields); i++ {
+				resolve[fields[i]+"."] = fields[0]
+			}
 		}
 	}
 
