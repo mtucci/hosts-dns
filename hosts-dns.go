@@ -40,8 +40,8 @@ func readHosts() {
 
 		// If the first field is a IPv4 address
 		if r.MatchString(fields[0]) {
-			for i := 1; i < len(fields); i++ {
-				resolve[fields[i]+"."] = fields[0]
+			for _, field := range fields[1:] {
+				resolve[field+"."] = fields[0]
 			}
 		}
 	}
