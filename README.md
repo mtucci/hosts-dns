@@ -1,5 +1,8 @@
 ### hosts-dns
-A dead simple DNS server reading records from /etc/hosts.
+A dead simple DNS server.
+
+It reads records from /etc/hosts and answers type A queries.
+
 No configuration needed.
 
 ### Usage
