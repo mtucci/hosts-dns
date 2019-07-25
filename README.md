@@ -8,7 +8,7 @@ No configuration needed.
 ### Usage
 
 #### Running the binary
-Download the latest binary from the release page.
+Download the [latest binary](https://github.com/mtucci/hosts-dns/releases/latest) from the release page.
 ```bash
 sudo ./hosts-dns
 ```
