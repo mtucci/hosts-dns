@@ -16,7 +16,7 @@ sudo ./hosts-dns
 #### Compiling from source
 ```bash
 go get "github.com/miekg/dns"
-git clone "https://hill.valley.ai/git/moebius0x/hosts-dns.wiki.git"
+git clone "https://github.com/mtucci/hosts-dns.git"
 cd hosts-dns
 go build hosts-dns
 ```
